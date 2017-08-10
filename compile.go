@@ -93,6 +93,10 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 	return nil, errors.New("Received unknown function query: " + function)
 }
 
+
+
+
+/************************************************************************************************************/
 func (t *SimpleChaincode) read(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	var key, jsonResp string
 
@@ -110,6 +114,9 @@ func (t *SimpleChaincode) read(stub shim.ChaincodeStubInterface, args []string) 
 	return valAsbytes, nil
 }
 
+
+
+/**********************************************************************************************************/
 func (t *SimpleChaincode) addProduct(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	if len(args) != 5 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 5")
@@ -148,6 +155,9 @@ func (t *SimpleChaincode) addProduct(stub shim.ChaincodeStubInterface, args []st
 	return nil, nil
 }
 
+
+
+/***********************************************************************************************************/
 func (t *SimpleChaincode) setProvision(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	if len(args) != 2 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 2")
@@ -181,6 +191,10 @@ func (t *SimpleChaincode) setProvision(stub shim.ChaincodeStubInterface, args []
 	return nil, nil
 }
 
+
+
+
+/******************************************************************************************************/
 func (t *SimpleChaincode) addUser(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	if len(args) != 3 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 3")
@@ -215,6 +229,13 @@ func (t *SimpleChaincode) addUser(stub shim.ChaincodeStubInterface, args []strin
 	return nil, nil
 }
 
+
+
+
+
+
+
+/***********************************************************************************************************/
 func (t *SimpleChaincode) addOrder(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	if len(args) != 4 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 4")
