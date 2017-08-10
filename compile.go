@@ -11,7 +11,7 @@ import (
 
 type SimpleChaincode struct {
 }
-
+// poussé
 type Product struct {
 	Ref         string  `json:"ref"`
 	Description string  `json:"description"`
