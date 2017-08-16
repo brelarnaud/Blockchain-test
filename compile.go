@@ -147,7 +147,7 @@ func (t *SimpleChaincode) addProduct(stub shim.ChaincodeStubInterface, args []st
 
 	count, err := strconv.Atoi(productsLength)
 	count++
-	err = stub.PutState("productsLength", []byte(strconv.Itoa(count)))
+	err = stub.PutState("productsLeng<th", []byte(strconv.Itoa(count)))
 	if err != nil {
 		return nil, err
 	}
@@ -364,6 +364,7 @@ func (t *SimpleChaincode) MajProduct(stub shim.ChaincodeStubInterface, args []st
 		for i = 0; i < len(order.Products); i++ {
 		productsAsBytes, err := stub.GetState("product"+ strconv.Itoa(i))
 		err = json.Unmarshal(productsAsBytes, &product)
+		_ = err
 
 		refproduct = product.Ref
 		qt = product.Quantity
@@ -375,6 +376,8 @@ func (t *SimpleChaincode) MajProduct(stub shim.ChaincodeStubInterface, args []st
 			for j = 0; j < productsLength; j++  {
 			productAsBytes, err := stub.GetState("product"+ strconv.Itoa(j))
 			err = json.Unmarshal(productsAsBytes, &product)
+			_ = productAsBytes
+			_ = err
 				if reforder == product.Ref {
 
 				//on  recupère la quantité et seuil du produit égal à reforder 
