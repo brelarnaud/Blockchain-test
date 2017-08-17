@@ -74,6 +74,8 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 		return t.addOrder(stub, args)
 	} else if function == "addUser" {
 		return t.addUser(stub, args)
+	} else if function == "MajProduct" {
+		return t.MajProduct(stub, args)
 	}
 	fmt.Println("invoke did not find func: " + function)
 
