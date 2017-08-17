@@ -147,7 +147,7 @@ func (t *SimpleChaincode) addProduct(stub shim.ChaincodeStubInterface, args []st
 
 	count, err := strconv.Atoi(productsLength)
 	count++
-	err = stub.PutState("productsLeng<th", []byte(strconv.Itoa(count)))
+	err = stub.PutState("productsLength", []byte(strconv.Itoa(count)))
 	if err != nil {
 		return nil, err
 	}
