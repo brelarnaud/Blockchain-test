@@ -18,6 +18,7 @@ type Collis struct {
 }
 
 type Product struct {
+	_Id			string	`json:"id"`
 	Ref         string  `json:"ref"`
 	Description string  `json:"description"`
 	Price       float64 `json:"price"`
@@ -27,6 +28,7 @@ type Product struct {
 }
 
 type Order struct {
+	_Id			string	  `json:"id"`
 	Ref         string    `json:"ref"`
 	ClientHash  string    `json:"clienthash"`
 	CarrierHash string    `json:"carrierhash"`
@@ -90,7 +92,8 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 		return t.setState(stub, args)
 	} else if function == "setTransport" {
 		return t.setTransport(stub, args)
-	}
+	} 
+	
 	fmt.Println("invoke did not find func: " + function)
 
 	return nil, errors.New("Received unknown function invocation: " + function)
